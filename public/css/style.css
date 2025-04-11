@@ -1,0 +1,57 @@
+/* Navbar Styles */
+.navbar {
+    background-color: white;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  .navbar-brand {
+    font-size: 24px;
+    font-weight: bold;
+    color: #ff385c;
+  }
+  
+  .navbar-nav {
+    display: flex;
+    justify-content: flex-end;
+    gap: 20px;
+    padding-right: 20px;
+  }
+  
+  .navbar-nav .nav-link {
+    font-weight: 600;
+    color: #333;
+    padding: 10px 0;
+  }
+  
+  .navbar-nav .nav-link:hover {
+    color: #ff385c;
+  }
+  
+  .navbar-toggler {
+    border: none;
+  }
+  
+  .navbar-toggler:focus {
+    box-shadow: none;
+  }
+  
+  .container {
+    margin-top: 20px;
+  }
+  
+  .fa-compass {
+    padding-left: 10px;
+    font-size: 35px;
+    font-weight: 900;
+    color: #ff385c;
+  }
+
+  .footer{
+    background-color: rgb(231, 227, 220);
+  }
+
+  .listing-img:hover {
+    transform: scale(1.05); 
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); 
+  }
+  

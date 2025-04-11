@@ -1,0 +1,35 @@
+<% layout('layouts/boilerplate') -%>
+<body>
+    <div class="container mt-5 pt-8">
+        <h1 class="text-center mt-4 pt-4">Edit Your Listing</h1>
+        <form action="/listing/<%= listing._id %>?_method=PUT" method="POST" class="row g-3">
+            <div class="col-12">
+                <label for="title" class="form-label">Title</label>
+                <input type="text" id="title" class="form-control" name="listing[title]" value="<%= listing.title %>" placeholder="Enter Title">
+            </div>
+            <div class="col-12">
+                <label for="description" class="form-label">Description</label>
+                <textarea id="description" class="form-control" name="listing[description]" placeholder="Enter Description"><%= listing.description %></textarea>
+            </div>
+            <div class="col-12">
+                <label for="image" class="form-label">Image URL</label>
+                <input type="text" id="image" class="form-control" name="listing[image]" value="<%= listing.image %>" placeholder="Enter URL/Link">
+            </div>
+            <div class="col-12 col-md-6">
+                <label for="price" class="form-label">Price</label>
+                <input type="number" id="price" class="form-control" name="listing[price]" value="<%= listing.price %>" placeholder="Enter Price">
+            </div>
+            <div class="col-12 col-md-6">
+                <label for="location" class="form-label">Location</label>
+                <input type="text" id="location" class="form-control" name="listing[location]" value="<%= listing.location %>" placeholder="Enter Location">
+            </div>
+            <div class="col-12 col-md-6">
+                <label for="country" class="form-label">Country</label>
+                <input type="text" id="country" class="form-control" name="listing[country]" value="<%= listing.country %>" placeholder="Enter Country">
+            </div>
+            <div class="col-12">
+                <button class="btn btn-primary w-10 w-md-auto">Update</button>
+            </div>
+        </form>
+    </div>
+</body>
