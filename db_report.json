@@ -1,0 +1,13 @@
+{
+  "userCount": 9,
+  "listingCount": 29,
+  "firstListing": {
+    "title": "Cozy Beachfront Cottage",
+    "owner": {
+      "_id": "691c479f2cfdedcaddf4dc9f",
+      "email": "ramu123@gmail.com",
+      "username": "ramu123",
+      "__v": 0
+    }
+  }
+}

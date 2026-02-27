@@ -1,17 +1,39 @@
 const mongoose = require("mongoose");
-const  Listing = require('../modles/listing.js');
-let initData = require('./data.js')
+const initData = require("./data.js");
+const Listing = require("../models/listing.js");
+const User = require("../models/user.js");
 
-main().then(res => console.log("Database connnection done")
-).catch(err => console.log("what a error"));
+const MONGO_URL = "mongodb://127.0.0.1:27017/wanderlust";
+
+main()
+  .then(async () => {
+    console.log("connected to DB");
+    await initDB();
+    mongoose.connection.close();
+  })
+  .catch((err) => {
+    console.log(err);
+  });
+
 
 async function main() {
-  await mongoose.connect('mongodb://127.0.0.1:27017/wanderlust');
+  await mongoose.connect(MONGO_URL);
 }
 
-const intDB = async () => {
-    await Listing.insertMany(initData.data);
-    console.log("Data is saved");   
-}
+const initDB = async () => {
+  await Listing.deleteMany({});
 
-intDB();
+  const owner = await User.findOne({});
+  if (!owner) {
+    console.error("No user found! Please seed users first.");
+    return;
+  }
+
+  initData.data = initData.data.map((obj) => ({
+    ...obj,
+    owner: owner._id,
+  }));
+
+  await Listing.insertMany(initData.data);
+  console.log("data was initialized");
+};

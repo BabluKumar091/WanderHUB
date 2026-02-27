@@ -20,39 +20,66 @@
     />
   </head>
   <body>
-    <nav
-      class="navbar navbar-expand-md navbar-light bg-light fixed-top"
-      style="margin-bottom: 20px"
-    >
-      <div class="container-fluid">
-        <a class="navbar-brand" href="/listing"
-          ><i class="fa-regular fa-compass"></i
-        ></a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarNavAltMarkup"
-          aria-controls="navbarNavAltMarkup"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div
-          class="collapse navbar-collapse justify-content-end"
-          id="navbarNavAltMarkup"
-        >
-          <div class="navbar-nav">
-            <a class="nav-link" href="/listing">Home</a>
-            <a class="nav-link" href="/listing">All Listing</a>
-            <a class="nav-link" href="/listing/new">Add New Listing</a>
-          </div>
-        </div>
-      </div>
-    </nav>
+    <nav class="navbar navbar-expand-md navbar-light fixed-top shadow-sm">
+  <div class="container-fluid px-4">
 
-    <div class="container mt-5"><%- body -%></div>
+    <!-- Brand -->
+    <a class="navbar-brand fw-bold d-flex align-items-center gap-2" href="/listing">
+      <i class="fa-regular fa-compass text-strong "></i>
+
+    </a>
+
+    <!-- Toggler -->
+    <button
+      class="navbar-toggler border-0"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNavAltMarkup"
+      aria-controls="navbarNavAltMarkup"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Collapse -->
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <!-- Left links -->
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link px-3" href="/listing">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link px-3" href="/listing">All Listings</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link px-3" href="/listing/new">Add New</a>
+        </li>
+      </ul>
+
+      <!-- Right links -->
+      <ul class="navbar-nav ms-auto">
+        <% if (!currUser) { %>
+        <li class="nav-item">
+          <a class="nav-link px-3" href="/signup">Sign up</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link px-3" href="/login">Login</a>
+        </li>
+        <% } %><% if (currUser) { %>
+        <li class="nav-item">
+          <a class="nav-link px-3" href="/logout">Logout</a>
+        </li>
+        <% } %>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="container">
+      <%- include("../includes/flash.ejs") %>
+      <%- body -%>
+    </div>
 
     <footer class="footer py-3 mt-5 text-dark">
       <div class="container text-center">
@@ -77,5 +104,6 @@
       integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
       crossorigin="anonymous"
     ></script>
+    <script src="/js/script.js"></script>
   </body>
 </html>
